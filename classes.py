@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from skills import Skill, FuryPunch, HardShot
+
+from skills import FuryPunch, HardShot, Skill
 
 
 @dataclass
@@ -20,7 +21,7 @@ WarriorClass = UnitClass(
     attack=20,
     stamina=50,
     armor=10,
-    skill=FuryPunch()
+    skill=FuryPunch(),
 )
 
 ThiefClass = UnitClass(
@@ -30,10 +31,7 @@ ThiefClass = UnitClass(
     attack=10,
     stamina=100,
     armor=5,
-    skill=HardShot()
+    skill=HardShot(),
 )
 
-unit_classes = {
-    ThiefClass.name: ThiefClass,
-    WarriorClass.name: WarriorClass
-}
+unit_classes = {ThiefClass.name: ThiefClass, WarriorClass.name: WarriorClass}

@@ -5,6 +5,7 @@ class Skill(ABC):
     """
     Базовый класс умения
     """
+
     user = None
     target = None
 
@@ -39,26 +40,35 @@ class Skill(ABC):
         self.target = target
         if self._is_stamina_enough:
             return self.skill_effect()
-        return f"{self.user.name} попытался использовать {self.name} но у него не хватило выносливости."
+        return (
+            f'{self.user.name} попытался использовать {self.name} '
+            'но у него не хватило выносливости.'
+        )
 
 
 class FuryPunch(Skill):
-    name = "Яростный удар"
+    name = 'Яростный удар'
     stamina = 10
     damage = 20
 
     def skill_effect(self):
         self.user.stamina -= self.stamina
         self.target.get_damage(self.damage)
-        return f"{self.user.name} использовал {self.name} и нанес {self.damage} урона {self.target.name}"
+        return (
+            f'{self.user.name} использовал {self.name} '
+            f'и нанес {self.damage} урона {self.target.name}'
+        )
 
 
 class HardShot(Skill):
-    name = "Сильный выстрел"
+    name = 'Сильный выстрел'
     stamina = 20
     damage = 30
 
     def skill_effect(self):
         self.user.stamina -= self.stamina
         self.target.get_damage(self.damage)
-        return f"{self.user.name} использовал {self.name} и нанес {self.damage} урона {self.target.name}"
+        return (
+            f'{self.user.name} использовал {self.name} '
+            f'и нанес {self.damage} урона {self.target.name}'
+        )

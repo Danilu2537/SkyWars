@@ -1,9 +1,10 @@
-from dataclasses import dataclass
-from typing import List
-from random import uniform
-import marshmallow_dataclass
-import marshmallow
 import json
+from dataclasses import dataclass
+from random import uniform
+from typing import List
+
+import marshmallow
+import marshmallow_dataclass
 
 
 @dataclass
@@ -34,7 +35,6 @@ class EquipmentData:
 
 
 class Equipment:
-
     def __init__(self):
         self.equipment = self._get_equipment_data()
 
@@ -56,10 +56,10 @@ class Equipment:
 
     @staticmethod
     def _get_equipment_data() -> EquipmentData:
-        with open("./data/equipment.json", encoding='UTF-8') as equipment_file:
+        with open('./data/equipment.json', encoding='UTF-8') as equipment_file:
             data = json.load(equipment_file)
             equipment_schema = marshmallow_dataclass.class_schema(EquipmentData)
             try:
                 return equipment_schema().load(data)
-            except marshmallow.exceptions.ValidationError:
-                raise ValueError
+            except marshmallow.exceptions.ValidationError as e:
+                raise ValueError from e
