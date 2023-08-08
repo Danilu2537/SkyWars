@@ -20,7 +20,7 @@ This project is a web game. It features turn-based combat, where you can customi
 1. Clone Repository
 
     ```bash
-    git clone https://github.com/Danilu2537/SkyMarket.git
+    git clone https://github.com/Danilu2537/SkyWars.git
     ```
 2. Install Docker and Docker-compose
 
