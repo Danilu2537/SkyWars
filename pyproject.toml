@@ -19,6 +19,7 @@ mypy-extensions = "0.4.3"
 typing-inspect = "0.7.1"
 typing-extensions = "4.0.1"
 werkzeug = "2.0.2"
+envparse = "^0.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
